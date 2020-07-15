@@ -1,0 +1,6 @@
+Credentials cache: API:8966350C-9F91-40A2-9A41-F86F0F36E799
+        Principal: gim@42SEOUL.KR
+
+  Issued                Expires               Principal
+Jul  4 12:12:19 2020  Jul  4 22:12:19 2020  krbtgt/42SEOUL.KR@42SEOUL.KR
+Jul  4 12:12:21 2020  Jul  4 22:12:19 2020  HTTP/student-storage.42seoul.kr@42SEOUL.KR
