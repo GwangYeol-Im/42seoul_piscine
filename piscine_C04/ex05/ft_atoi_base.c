@@ -5,102 +5,103 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/15 10:15:24 by imgwang-yeo       #+#    #+#             */
-/*   Updated: 2020/07/15 14:42:13 by gim              ###   ########.fr       */
+/*   Created: 2020/07/16 13:14:38 by gim               #+#    #+#             */
+/*   Updated: 2020/07/16 13:58:16 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			change_int(int digit, int dec)
+int	check_base(char *base)
 {
-	while (dec)
-	{
-		digit *= 10;
-		dec--;
-	}
-	return (digit);
-}
+	int i;
+	int j;
 
-int			change_int_base(char *str, int i, int base_num)
-{
-	int		result;
-	int		num;
-	int		dec;
-
-	dec = 0;
-	num = 0;
-	result = 0;
-	while (i)
-		num += change_int((int)str[--i] - 48, dec++);
-	dec = 0;
-	while (1)
-	{
-		result += change_int(num % base_num, dec++);
-		num /= base_num;
-		if (num == 0)
-			break ;
-	}
-	return (result);
-}
-
-int			ft_atoi(char *str, int base_num)
-{
-	int		minus;
-	int		i;
-
-	minus = 1;
-	while (*str)
-	{
-		if (*str >= '0' && *str <= '9')
-			break ;
-		else if (*str >= 'a' && *str <= 'z')
-			return (0);
-		else if (*str >= 'A' && *str <= 'Z')
-			return (0);
-		else if (*str++ == '-')
-			minus *= -1;
-	}
+	if (base[0] == '\0' || base[1] == '\0')
+		return (0);
 	i = 0;
-	while (str[i])
+	while (base[i] != '\0')
 	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			break ;
+		if (base[i] == '+' || base[i] == '-'
+				|| base[i] == '\n' || base[i] == '\v'
+				|| base[i] == '\t' || base[i] == '\f'
+				|| base[i] == '\r' || base[i] == ' ')
+			return (0);
+		j = i + 1;
+		while (base[j] != '\0')
+		{
+			if (base[i] == base[j])
+				return (0);
+			j++;
+		}
 		i++;
 	}
-	return (change_int_base(str, i, base_num) * minus);
+	return (1);
 }
 
-int			check_base(char *base)
+int	judge_ascii(char c, char *base)
 {
-	int	idx;
-	int overlap;
+	int i;
 
-	idx = 0;
-	while (base[idx])
+	if (c == '\t' || c == '\n'
+			|| c == '\v' || c == '\f'
+			|| c == '\r' || c == ' ')
+		return (1);
+	if (c == '-')
+		return (-1);
+	if (c == '+')
+		return (-2);
+	i = 0;
+	while (base[i] != '\0')
 	{
-		if (base[idx] == '+' || base[idx] == '-' || base[idx] == ' ')
-			return (0);
-		else
-		{
-			overlap = 0;
-			while (overlap < idx)
-			{
-				if (base[overlap++] == base[idx])
-					return (0);
-			}
-		}
-		idx++;
+		if (c == base[i++])
+			return (2);
 	}
-	if (idx == 1)
-		return (0);
-	return (idx);
+	return (0);
 }
 
-int			ft_atoi_base(char *str, char *base)
+int	get_int(char c, char *base)
 {
-	int		base_num;
+	int i;
 
-	base_num = check_base(base);
-	if (!base_num)
+	i = 0;
+	while (base[i] != c)
+		i++;
+	return (i);
+}
+
+int	get_len(char *base)
+{
+	int i;
+
+	i = 0;
+	while (base[i] != '\0')
+		i++;
+	return (i);
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int index;
+	int count;
+	int result;
+	int length;
+
+	if (!check_base(base))
 		return (0);
-	return (ft_atoi(str, base_num));
+	index = 0;
+	while (judge_ascii(str[index], base) == 1)
+		index++;
+	count = 0;
+	while (judge_ascii(str[index], base) < 0)
+	{
+		if (judge_ascii(str[index], base) == -1)
+			count++;
+		index++;
+	}
+	if (judge_ascii(str[index], base) != 2)
+		return (0);
+	result = get_int(str[index++], base);
+	length = get_len(base);
+	while (judge_ascii(str[index], base) == 2)
+		result = result * length + get_int(str[index++], base);
+	return (count % 2 == 1 ? result * (-1) : result);
 }

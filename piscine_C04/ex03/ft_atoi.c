@@ -6,7 +6,7 @@
 /*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 21:45:57 by gim               #+#    #+#             */
-/*   Updated: 2020/07/15 09:53:32 by gim              ###   ########.fr       */
+/*   Updated: 2020/07/16 13:05:10 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,13 @@ int			judge_ascii(char c, char symbol)
 		return (c >= 'a' && c <= 'z' ? 1 : 0);
 	else if (symbol == 'A')
 		return (c >= 'A' && c <= 'Z' ? 1 : 0);
+	else if (symbol == ' ')
+		return (c == '\t'
+					|| c == '\n'
+					|| c == '\v'
+					|| c == '\f'
+					|| c == '\r'
+					|| c == ' ' ? 1 : 0);
 	else
 		return (0);
 }
@@ -51,11 +58,15 @@ int			ft_atoi(char *str)
 	int		i;
 
 	minus = 1;
+	while (judge_ascii(*str, ' '))
+		str++;
 	while (*str)
 	{
 		if (judge_ascii(*str, '0'))
 			break ;
-		if (judge_ascii(*str, 'a') || judge_ascii(*str, 'A'))
+		if (judge_ascii(*str, 'a')
+				|| judge_ascii(*str, 'A')
+				|| judge_ascii(*str, ' '))
 			return (0);
 		if (*str++ == '-')
 			minus *= -1;
