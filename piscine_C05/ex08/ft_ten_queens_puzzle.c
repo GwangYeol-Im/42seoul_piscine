@@ -6,12 +6,11 @@
 /*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 19:00:11 by imgwang-yeo       #+#    #+#             */
-/*   Updated: 2020/07/19 19:10:09 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/19 19:31:58 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void		print(char *str, int size)
 {
@@ -92,8 +91,3 @@ int			ft_ten_queens_puzzle(void)
 	return (available);
 }
 
-int			main(void)
-{
-	printf("%d", ft_ten_queens_puzzle());
-	return (0);
-}
