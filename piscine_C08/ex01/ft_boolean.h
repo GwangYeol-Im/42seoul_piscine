@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/14 13:48:39 by gim               #+#    #+#             */
-/*   Updated: 2020/07/19 11:52:37 by imgwang-yeo      ###   ########.fr       */
+/*   Created: 2020/07/17 21:46:17 by imgwang-yeo       #+#    #+#             */
+/*   Updated: 2020/07/17 21:53:55 by imgwang-yeo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int				is_prime(int nb)
-{
-	long long	div;
+#ifndef FT_BOOLEAN
+# define FT_BOOLEAN
+#include <unistd.h>
 
-	div = 2;
-	while (div * div <= nb)
-	{
-		if (nb % div == 0)
-			return (0);
-		div++;
-	}
-	return (1);
-}
+# define TRUE 1
+# define FALSE 0
+# define EVEN (x) (x % 2 == 0)
+# define EVEN_MSG "I have an even number of arguments."
+# define ODD_MSG "I have an odd number of arguments."
 
-int				ft_find_next_prime(int nb)
-{
-	if (nb <= 2)
-		return (2);
-	while (!is_prime(nb))
-		nb++;
-	return (nb);
-}
+
+#endif
