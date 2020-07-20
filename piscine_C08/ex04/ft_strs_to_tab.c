@@ -6,7 +6,7 @@
 /*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:36:37 by imgwang-yeo       #+#    #+#             */
-/*   Updated: 2020/07/19 14:44:09 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/20 11:05:00 by imgwang-yeo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,19 @@ t_stock_str			*get_stock_str(t_stock_str *stt, char *str)
 	return (stt);
 }
 
+void				free_tab(t_stock_str *tab, int size)
+{
+	int				i;
+	
+	i = 0;
+	while (i < size)
+		free(tab[i++].copy);
+	free(tab);
+}
+
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	t_stock_str		*result;
-	t_stock_str		*temp;
 	int				i;
 
 	i = 0;
@@ -58,6 +67,11 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	result[ac].str = 0;
 	while (i < ac)
 	{
-		
+		if (!get_stock_str(&result[i], av[i]))
+		{
+			free_tab(result, i);
+			return (0);
+		}
 	}
+	return (result);
 };
