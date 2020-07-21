@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do-op.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
+/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 18:48:00 by imgwang-yeo       #+#    #+#             */
-/*   Updated: 2020/07/20 19:48:25 by imgwang-yeo      ###   ########.fr       */
+/*   Created: 2020/07/21 11:48:11 by gim               #+#    #+#             */
+/*   Updated: 2020/07/21 11:51:47 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ long long		do_op(char *n1, char *op, char *n2)
 	return (0);
 }
 
-void			print_result(char *n1, char *op, char *n2, long long(*f)(char*, char*, char*))
+void			print(char *n1, char *op, char *n2, long long(*f)(char*, char*, char*))
 {
 	long long	result;
 
-	result  = f(n1, op, n2);
+	result = f(n1, op, n2);
 	if (result < 0)
 	{
 		write(1, "-", 1);
@@ -72,9 +72,9 @@ int				check(char *op, char *n2)
 		write(1, "Stop : modulo by zero", 22);
 		return (0);
 	}
-	if (!(*op == '+' 
-			|| *op == '-' 
-			|| *op == '/' 
+	if (!(*op == '+'
+			|| *op == '-'
+			|| *op == '/'
 			|| *op == '*'
 			|| *op == '%'))
 	{
@@ -89,8 +89,8 @@ int				main(int ac, char **av)
 	if (ac == 4)
 	{
 		if (check(av[2], av[3]))
-			print_result(av[1], av[2], av[3], *do_op);
+			print(av[1], av[2], av[3], *do_op);
 		write(1, "\n", 1);
 	}
-	return (0);	
+	return (0);
 }
