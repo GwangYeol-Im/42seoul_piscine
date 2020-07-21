@@ -1,4 +1,4 @@
 #!/bin/sh
 
-gcc -c ./ft_*
+gcc -Wall -Wextra -Werror -c ./ft_*
 ar rc libft.a ./*.o
