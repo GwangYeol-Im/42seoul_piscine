@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_any.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
+/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 17:39:55 by imgwang-yeo       #+#    #+#             */
-/*   Updated: 2020/07/20 17:44:16 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/21 20:27:12 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_any(char **tab, int(*f)(char*))
+int		ft_any(char **tab, int (*f)(char*))
 {
 	int	answer;
 	int	i;

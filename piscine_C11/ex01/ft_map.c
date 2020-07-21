@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
+/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 17:23:03 by imgwang-yeo       #+#    #+#             */
-/*   Updated: 2020/07/20 17:38:58 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/21 20:27:02 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		*ft_map(int *tab, int length, int(*f)(int))
+int		*ft_map(int *tab, int length, int (*f)(int))
 {
 	int	*result;
 	int	i;

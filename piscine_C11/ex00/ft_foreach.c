@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
+/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:51:31 by imgwang-yeo       #+#    #+#             */
-/*   Updated: 2020/07/20 17:13:19 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/21 20:26:43 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_foreach(int *tab, int length, void(*f)(int))
+void		ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int		i;
 
