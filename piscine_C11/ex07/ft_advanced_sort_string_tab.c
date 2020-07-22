@@ -6,7 +6,7 @@
 /*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:59:34 by gim               #+#    #+#             */
-/*   Updated: 2020/07/22 14:44:34 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/22 17:40:44 by imgwang-yeo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 		sort = 0;
 		while (sort < len - i - 1)
 		{
-			if (cmp(tab[sort], tab[sort + 1]))
+			if (cmp(tab[sort], tab[sort + 1]) > 0)
 				ft_swap(&tab[sort], &tab[sort + 1]);
 			sort++;
 		}
