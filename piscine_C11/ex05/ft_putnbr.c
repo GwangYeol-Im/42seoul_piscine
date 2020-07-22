@@ -6,31 +6,26 @@
 /*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/12 12:55:56 by gim               #+#    #+#             */
-/*   Updated: 2020/07/22 20:05:57 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/22 21:24:09 by imgwang-yeo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr(int nb)
+void		ft_putnbr(int nb)
 {
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-	}
-	else if (nb < 0)
-	{
+	int		minus;
+	int		div;
+	int		mod;
+	char	c;
+
+	minus = nb < 0 ? -1 : 1;
+	div = nb / 10 * minus;
+	mod = nb % 10 * minus;
+	c = mod + '0';
+	if (nb < 0)
 		write(1, "-", 1);
-		ft_putnbr(-nb);
-	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-	{
-		nb += '0';
-		write(1, &nb, 1);
-	}
+	if (div)
+		ft_putnbr(div);
+	write(1, &c, 1);
 }
