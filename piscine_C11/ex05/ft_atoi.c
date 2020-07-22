@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:25:40 by gim               #+#    #+#             */
-/*   Updated: 2020/07/21 13:58:56 by gim              ###   ########.fr       */
+/*   Updated: 2020/07/22 17:12:30 by imgwang-yeo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long		change_to_int(char *str, int len)
+int				change_to_int(char *str, int len)
 {
 	int			i;
-	long long	result;
+	int			result;
 
 	i = 0;
 	result = 0;
@@ -38,10 +38,10 @@ int				is_num(char c)
 	return (0);
 }
 
-long long		ft_atoi(char *str)
+int				ft_atoi(char *str)
 {
-	int	minus;
-	int	i;
+	int			minus;
+	int			i;
 
 	i = 0;
 	minus = 1;

@@ -6,7 +6,7 @@
 /*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:58:44 by gim               #+#    #+#             */
-/*   Updated: 2020/07/22 14:55:25 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/22 17:13:41 by imgwang-yeo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "ft_func.h"
 
-long long		(*get_calc(char *op))(long long, long long)
+int			(*get_calc(char *op))(int, int)
 {
 	if (op[1])
 		return (0);
@@ -31,7 +31,7 @@ long long		(*get_calc(char *op))(long long, long long)
 	return (0);
 }
 
-int				check_zero(char *op, char *n2)
+int			check_zero(char *op, char *n2)
 {
 	if (*op == '/' && *n2 == '0')
 	{
@@ -46,11 +46,11 @@ int				check_zero(char *op, char *n2)
 	return (0);
 }
 
-int				main(int ac, char **av)
+int			main(int ac, char **av)
 {
-	long long	(*calc)(long long, long long);
-	int			n1;
-	int			n2;
+	int		(*calc)(int, int);
+	int		n1;
+	int		n2;
 
 	if (ac != 4)
 		return (0);

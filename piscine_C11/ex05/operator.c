@@ -3,34 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   operator.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:19:23 by gim               #+#    #+#             */
-/*   Updated: 2020/07/21 14:06:25 by gim              ###   ########.fr       */
+/*   Updated: 2020/07/22 17:15:10 by imgwang-yeo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long	add(long long n1, long long n2)
+int	add(int n1, int n2)
 {
 	return (n1 + n2);
 }
 
-long long	min(long long n1, long long n2)
+int	min(int n1, int n2)
 {
 	return (n1 - n2);
 }
 
-long long	mul(long long n1, long long n2)
+int	mul(int n1, int n2)
 {
 	return (n1 * n2);
 }
 
-long long	div(long long n1, long long n2)
+int	div(int n1, int n2)
 {
 	return (n1 / n2);
 }
 
-long long	mod(long long n1, long long n2)
+int	mod(int n1, int n2)
 {
 	return (n1 % n2);
 }
