@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
+/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 18:07:00 by imgwang-yeo       #+#    #+#             */
-/*   Updated: 2020/07/22 19:06:06 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/23 03:59:02 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ typedef	struct			s_list
 	void				*data;
 }						t_list;
 t_list 					*ft_create_elem(void *data);
+
 #endif

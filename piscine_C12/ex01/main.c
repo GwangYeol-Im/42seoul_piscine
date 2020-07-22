@@ -8,6 +8,7 @@ int main(void)
 {
 	t_list **begin_list = (t_list **)malloc(sizeof(t_list *));
 
+	*begin_list = 0;
 	ft_list_push_front(begin_list, "world!");
 	ft_list_push_front(begin_list, "hello");
 

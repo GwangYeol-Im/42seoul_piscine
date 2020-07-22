@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
+/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 18:28:04 by imgwang-yeo       #+#    #+#             */
-/*   Updated: 2020/07/22 19:11:42 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/23 03:19:34 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 t_list		*ft_create_elem(void *data)
 {
-	t_list	*list;
+	t_list	*node;
 
-	list = (t_list *)malloc(sizeof(t_list));
-	list -> data = data;
-	list -> next = 0;
-	return (list);
+	if (!(node = (t_list *)malloc(sizeof(t_list))))
+		return (0);
+	node->data = data;
+	node->next = 0;
+	return (node);
 }
