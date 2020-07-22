@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:58:44 by gim               #+#    #+#             */
-/*   Updated: 2020/07/21 14:25:12 by gim              ###   ########.fr       */
+/*   Updated: 2020/07/22 14:55:25 by imgwang-yeo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 #include "ft_func.h"
 
-long long		(*get_calc(char *op))(int, int)
+long long		(*get_calc(char *op))(long long, long long)
 {
+	if (op[1])
+		return (0);
 	if (op[0] == '+')
 		return (&add);
 	else if (op[0] == '-')
@@ -45,7 +48,7 @@ int				check_zero(char *op, char *n2)
 
 int				main(int ac, char **av)
 {
-	long long	(*calc)(int, int);
+	long long	(*calc)(long long, long long);
 	int			n1;
 	int			n2;
 
