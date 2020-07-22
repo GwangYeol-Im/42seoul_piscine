@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imgwang-yeol <imgwang-yeol@student.42.f    +#+  +:+       +#+        */
+/*   By: gim <gim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:58:44 by gim               #+#    #+#             */
-/*   Updated: 2020/07/22 17:13:41 by imgwang-yeo      ###   ########.fr       */
+/*   Updated: 2020/07/23 01:50:02 by gim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 #include "ft_func.h"
 
 int			(*get_calc(char *op))(int, int)
@@ -35,12 +34,12 @@ int			check_zero(char *op, char *n2)
 {
 	if (*op == '/' && *n2 == '0')
 	{
-		write(1, "Stop : division by zero\n", 25);
+		write(1, "Stop : division by zero\n", 24);
 		return (1);
 	}
 	if (*op == '%' && *n2 == '0')
 	{
-		write(1, "Stop : modulo by zero\n", 23);
+		write(1, "Stop : modulo by zero\n", 22);
 		return (1);
 	}
 	return (0);
